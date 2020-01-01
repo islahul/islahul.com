@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Islahul Hassan Zunjani | Digital garden | Personal',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'This is a collection of thoughts, notes and photographs by myself including some information about my work.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
