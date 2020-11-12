@@ -49,12 +49,16 @@ const TemplateWrapper = ({ children }) => {
         />
         {/* Global site tag (gtag.js) - Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-30119560-1"></script>
-        <script>
+        <script dangerouslySetInnerHTML={{
+        __html: `
+          window = window || {}
           window.dataLayer = window.dataLayer || []
-          function gtag(){dataLayer.push(arguments)}
+          function gtag() {
+            window.dataLayer.push(arguments)
+          }
           gtag('js', new Date())
           gtag('config', 'UA-30119560-1')
-        </script>
+        `}}/>
       </Helmet>
       <Navbar />
       <div>{children}</div>
