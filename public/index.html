@@ -1,90 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>islahul.com</title>
-    <meta
-      name="description"
-      content="Personal website for Islahul Hassan Zunjani."
-    />
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f4efe6;
-        --panel: #fffaf2;
-        --text: #1c1917;
-        --muted: #57534e;
-        --accent: #9a3412;
-        --border: #d6d3d1;
-      }
 
-      * {
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islahul Hassan Zunjani</title>
+  <meta name="description" content="Head of Engineering at Kive. Previously Mavenoid, Vy Capital, TinyOwl, and Fynd." />
+  <script>
+    ; (() => {
+      const stored = localStorage.getItem('theme')
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const theme = stored || (prefersDark ? 'dark' : 'light')
+      document.documentElement.classList.toggle('dark', theme === 'dark')
+      document.documentElement.dataset.theme = theme
+    })()
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            paper: '#faf7f0',
+            paperdark: '#101010',
+            ink: '#111111',
+            inkdark: '#f2f0ea',
+            mute: '#5f5a52',
+            mutedark: '#bdb7ae',
+            line: '#d9d3c8',
+            linedark: '#2d2a26',
+            accent: '#0f766e',
+            accentdark: '#5eead4',
+          },
+          fontFamily: {
+            serif: ['Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'Georgia', 'serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    ::selection {
+      background: rgba(15, 118, 110, 0.2);
+    }
+  </style>
+</head>
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        background:
-          radial-gradient(circle at top, rgba(251, 191, 36, 0.18), transparent 35%),
-          linear-gradient(180deg, #fdf8f1 0%, var(--bg) 100%);
-        color: var(--text);
-        font-family: Georgia, "Times New Roman", serif;
-      }
+<body
+  class="bg-paper font-serif text-ink antialiased transition-colors duration-200 dark:bg-paperdark dark:text-inkdark">
+  <main class="mx-auto min-h-screen max-w-3xl px-6 py-10 sm:px-8 sm:py-12">
+    <div class="mb-6 flex items-start justify-between gap-4">
+      <div>
+        <h1 class="text-4xl leading-none tracking-tight sm:text-5xl">
+          Islahul
+        </h1>
+      </div>
+      <button id="theme-toggle" type="button"
+        class="shrink-0 rounded-full border border-line px-3 py-1.5 text-sm text-mute transition hover:text-accent dark:border-linedark dark:text-mutedark dark:hover:text-accentdark"
+        aria-label="Toggle dark mode">
+        <span id="theme-toggle-label">dark</span>
+      </button>
+    </div>
 
-      main {
-        width: min(680px, 100%);
-        padding: 48px 40px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        box-shadow: 0 24px 80px rgba(28, 25, 23, 0.08);
-      }
+    <div class="mb-8 flex flex-wrap gap-x-4 gap-y-1 text-[1.02rem] text-accent dark:text-accentdark">
+      <a class="underline underline-offset-4 hover:no-underline" href="mailto:islahulzunjani@gmail.com">email</a>
+      <a class="underline underline-offset-4 hover:no-underline" href="https://www.linkedin.com/in/islahul/"
+        target="_blank" rel="noreferrer">linkedin</a>
+      <a class="underline underline-offset-4 hover:no-underline" href="https://github.com/islahul" target="_blank"
+        rel="noreferrer">github</a>
+    </div>
 
-      h1 {
-        margin: 0 0 12px;
-        font-size: clamp(2.5rem, 7vw, 4.5rem);
-        line-height: 0.95;
-        letter-spacing: -0.04em;
-      }
+    <section class="border-t border-line pt-6 dark:border-linedark">
+      <h2 class="mb-4 text-2xl tracking-tight">bio</h2>
+      <div class="space-y-4 text-[1.06rem] leading-8 text-mute dark:text-mutedark">
+        <p>
+          I help ambitious teams build products and engineering organizations
+          from early/zero traction to scale. I currently lead engineering and ship at
+          Kive in Stockholm, Sweden.
+        </p>
+      </div>
+    </section>
 
-      p {
-        margin: 0;
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: var(--muted);
-      }
+    <section class="mt-10 border-t border-line pt-6 dark:border-linedark">
+      <h2 class="mb-5 text-2xl tracking-tight">timeline</h2>
+      <div class="space-y-6 text-[1.02rem] leading-8 text-mute dark:text-mutedark">
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2025 -</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">Kive - Gen AI</h3>
+            <p>
+              Head of Engineering. Building the AI brand engine. Making sure hypergrowth doesn't kill us.
+            </p>
+          </div>
+        </article>
 
-      a {
-        color: var(--accent);
-      }
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2018 - 2025</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">Mavenoid - AI Customer Support</h3>
+            <p>
+              Joined as the second employee and helped reach
+              product-market fit. Later led a remote cross-functional team
+              focused on customer support automation using AI.
+            </p>
+          </div>
+        </article>
 
-      .meta {
-        margin-top: 24px;
-        font-size: 0.95rem;
-      }
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2015 - 2017</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">Vy Capital - VC</h3>
+            <p>
+              Analyst Programmer. Built the data analytics platform to
+              analyze public companies and startups, and helped spin off Synaptic.com
+            </p>
+          </div>
+        </article>
 
-      @media (max-width: 640px) {
-        main {
-          padding: 32px 24px;
-          border-radius: 18px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Islahul Hassan Zunjani</h1>
-      <p>
-        This site has been simplified to a single static HTML page. You can
-        reach me at
-        <a href="mailto:islahulzunjani@gmail.com">islahulzunjani@gmail.com</a>.
-      </p>
-      <p class="meta">No framework, no build step, just one file.</p>
-    </main>
-  </body>
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2014 - 2015</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">TinyOwl - Food tech</h3>
+            <p>
+              Engineer. Built TinyOwl Homemade iOS and Android apps.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2013 - 2014</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">Fynd - Retail tech</h3>
+            <p>
+              Engineer. Built large in-store touchscreen apps aimed at
+              improving product discovery, customer engagement, and sales.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2013</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">LurnQ.com - Edtech</h3>
+            <p>
+              Engineer. Built an assessment app.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <p class="font-mono text-sm text-mute dark:text-mutedark">2009 - 2013</p>
+          <div>
+            <h3 class="text-lg text-ink dark:text-inkdark">IIT Bombay</h3>
+            <p>
+              BTech in Civil Engineering. This is where software engineering
+              and product work started to pull harder than the degree itself.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-10 border-t border-line pt-6 dark:border-linedark">
+      <h2 class="mb-4 text-2xl tracking-tight">principles</h2>
+      <ul class="list-disc space-y-2 pl-5 text-[1.02rem] leading-8 text-mute dark:text-mutedark">
+        <li>[pending your principles]</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const root = document.documentElement
+    const button = document.getElementById('theme-toggle')
+    const label = document.getElementById('theme-toggle-label')
+
+    function syncThemeLabel() {
+      const dark = root.classList.contains('dark')
+      label.textContent = dark ? 'light' : 'dark'
+    }
+
+    button.addEventListener('click', () => {
+      const dark = root.classList.toggle('dark')
+      const theme = dark ? 'dark' : 'light'
+      root.dataset.theme = theme
+      localStorage.setItem('theme', theme)
+      syncThemeLabel()
+    })
+
+    syncThemeLabel()
+  </script>
+</body>
+
 </html>
